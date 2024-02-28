@@ -1,0 +1,23 @@
+.none {
+  display: none !important;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.container form {
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 20px;
+}
+.container form div {
+  border-bottom: 4px solid;
+  padding: 20px;
+}/*# sourceMappingURL=style.css.map */

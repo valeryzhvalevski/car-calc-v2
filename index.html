@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Калькулятор</h1>
+      <form name="calc">
+        <div class="container_marka">
+          <label>Выберите марку авто</label>
+          <select name="markaAuto">
+            <option value="" hidden>Выберите марку авто</option>
+            <option value="BMW">BMW</option>
+            <option value="AUDI">Audi</option>
+            <option value="CITROEN">Citroen</option>
+            <option value="SKODA">Skoda</option>
+          </select>
+        </div>
+        <div class="container_model none">
+          <label>Выберите модель авто</label>
+          <select name="modelAuto"></select>
+        </div>
+        <div class="wrapper_secondForm none">
+          <div class="container_fuel">
+            <h2>Укажите тип топлива</h2>
+            <label for="petrol">Бензин</label>
+            <input type="radio" id="petrol" name="fuel" value="5000" />
+            <label for="diesel">Дизель</label>
+            <input type="radio" id="diesel" name="fuel" value="6000" />
+            <label for="gas">Газ</label>
+            <input type="radio" id="gas" name="fuel" value="4000" />
+            <label for="electricity">Электричество</label>
+            <input type="radio" id="electricity" name="fuel" value="14000" />
+          </div>
+          <div class="container_engine">
+            <label>Укажите обьем двигателя</label>
+            <input type="number" min="1.1" max="3.5" step="0.1" name="enigne" />
+          </div>
+          <div class="container_status">
+            <label for="new">Новый</label>
+            <input type="radio" id="new" name="status" value="12000" />
+            <label for="used">Подержаный</label>
+            <input type="radio" id="used" name="status" value="-3000" />
+          </div>
+          <div class="container__count-user none">
+            <label for="firstCount">1-2 владельца</label>
+            <input type="radio" id="firstCount" name="count" value="1000" />
+            <label for="manyUsers">Более трех владельцев</label>
+            <input type="radio" id="manyUsers" name="count" value="500" />
+          </div>
+          <button name="btnSend" type="submit">Рассчитать</button>
+        </div>
+      </form>
+      <div class="result"></div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>

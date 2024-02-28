@@ -1,0 +1,28 @@
+%radiobtn {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: white;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid black;
+  margin-right: 10px;
+}
+%radiobtnchecked {
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  top: -2px;
+  left: -1px;
+  position: relative;
+  background-color: #5957f7;
+  content: "";
+  display: inline-block;
+  visibility: visible;
+  border: 2px solid white;
+  margin-right: 10px;
+}

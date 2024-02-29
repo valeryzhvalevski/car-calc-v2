@@ -10,6 +10,7 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   form {
     min-height: 600px;
+    width: 550px;
     display: flex;
     flex-direction: column;
     border: 1px solid;
@@ -18,5 +19,19 @@
       border-bottom: 4px solid;
       padding: 20px;
     }
+  }
+}
+.container_model, .wrapper_secondForm, .container__count-user {
+  animation: toDown 0.5s ease-in-out;
+}
+
+@keyframes toDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

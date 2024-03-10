@@ -3,25 +3,29 @@ const buttons = document.querySelectorAll("button");
 const video = document.getElementById("background-video");
 const firstButton = document.getElementById("firstButton");
 const form = document.forms.calc;
-const geely = document.getElementById('geely');
-const modelContainer = document.querySelector('.model');
-const modesAudi = document.querySelector('.model__audi');
-const modesSkoda = document.querySelector('.model__skoda');
-const modesVolvo = document.querySelector('.model__volvo');
-const modesVW = document.querySelector('.model__vw');
-const audiBTN = document.getElementById ('audi-btn');
-const skodaBTN = document.getElementById ('skoda-btn');
-const volvoBTN = document.getElementById ('volvo-btn');
-const vwBTN = document.getElementById ('vw-btn');
+const geely = document.getElementById("geely");
+const modelContainer = document.querySelector(".model");
+const modelsAudi = document.querySelector(".model__audi");
+const modelsSkoda = document.querySelector(".model__skoda");
+const modelsVolvo = document.querySelector(".model__volvo");
+const modelsVW = document.querySelector(".model__vw");
+const audiBTN = document.getElementById("audi-btn");
+const skodaBTN = document.getElementById("skoda-btn");
+const volvoBTN = document.getElementById("volvo-btn");
+const vwBTN = document.getElementById("vw-btn");
+const fuelContainer = document.querySelector(".fuel");
+const engineContainer = document.querySelector(".engine");
+const ownersContainer = document.querySelector(".owners");
+const priceBTN = document.getElementById('price');
 
 video.playbackRate = 0.8;
 
 form.classList.add("none");
 
-firstButton.addEventListener('click', (event) => {
+firstButton.addEventListener("click", (event) => {
   event.preventDefault();
-  form.classList.remove('none');
-  firstButton.classList.add('none');
+  form.classList.remove("none");
+  firstButton.classList.add("none");
 });
 
 buttons.forEach((button) => {
@@ -32,21 +36,92 @@ buttons.forEach((button) => {
   });
 });
 
-geely.addEventListener('mousemove', (event) => {
-  const mouseX = event.clientX;
-  const mouseY = event.clientY;
-  const rect = geely.getBoundingClientRect();
-  const elemX = rect.left + rect.width / 2;
-  const elemY = rect.top + rect.height / 2;
-  const offsetX = mouseX - elemX;
-  const offsetY = mouseY - elemY;
-  const newX = elemX - offsetX * 0.05; // Множитель для скорости движения
-  const newY = elemY - offsetY * 0.05; // Множитель для скорости движения
-
-  // Применение новых координат
-  geely.style.transform = `translate(${newX}px, ${newY}px)`;
+geely.addEventListener("mousemove", function(event) {
+  const x = event.clientX;
+  const y = event.clientY;
+  const elementX = geely.getBoundingClientRect().left;
+  const elementY = geely.getBoundingClientRect().top;
+  const deltaX = x - elementX;
+  const deltaY = y - elementY;
+  geely.style.transform = `translate(${deltaX / 0.3}px, ${deltaY / 0.4}px)`;
 });
 
+geely.addEventListener("mouseleave", function() {
+  geely.style.transform = `translate(0px, 0px)`;
+});
+
+modelsAudi.classList.add("none");
+modelsSkoda.classList.add("none");
+modelsVW.classList.add("none");
+modelsVolvo.classList.add("none");
+fuelContainer.classList.add("none");
+engineContainer.classList.add("none");
+ownersContainer.classList.add("none");
+priceBTN.classList.add("none");
+
+audiBTN.addEventListener("click", () => {
+  audiBTN.classList.add('active-btn-img');
+  skodaBTN.classList.remove('active-btn-img');
+  volvoBTN.classList.remove('active-btn-img');
+  vwBTN.classList.remove('active-btn-img');
+
+  modelsSkoda.classList.add("none");
+  modelsVW.classList.add("none");
+  modelsVolvo.classList.add("none");
+  modelsAudi.classList.remove("none");
+  fuelContainer.classList.remove("none");
+  engineContainer.classList.remove("none");
+  ownersContainer.classList.remove("none");
+});
+
+skodaBTN.addEventListener("click", () => {
+  skodaBTN.classList.add('active-btn-img');
+  audiBTN.classList.remove('active-btn-img');
+  volvoBTN.classList.remove('active-btn-img');
+  vwBTN.classList.remove('active-btn-img');
+
+
+
+  modelsAudi.classList.add("none");
+  modelsVW.classList.add("none");
+  modelsVolvo.classList.add("none");
+  modelsSkoda.classList.remove("none");
+  fuelContainer.classList.remove("none");
+  engineContainer.classList.remove("none");
+  ownersContainer.classList.remove("none");
+});
+
+volvoBTN.addEventListener("click", () => {
+  volvoBTN.classList.add('active-btn-img');
+  skodaBTN.classList.remove('active-btn-img');
+  audiBTN.classList.remove('active-btn-img');
+  vwBTN.classList.remove('active-btn-img');
+
+
+  modelsAudi.classList.add("none");
+  modelsSkoda.classList.add("none");
+  modelsVW.classList.add("none");
+  modelsVolvo.classList.remove("none");
+  fuelContainer.classList.remove("none");
+  engineContainer.classList.remove("none");
+  ownersContainer.classList.remove("none");
+});
+
+vwBTN.addEventListener("click", () => {
+  vwBTN.classList.add('active-btn-img');
+  skodaBTN.classList.remove('active-btn-img');
+  audiBTN.classList.remove('active-btn-img');
+  volvoBTN.classList.remove('active-btn-img');
+
+
+  modelsAudi.classList.add("none");
+  modelsSkoda.classList.add("none");
+  modelsVolvo.classList.add("none");
+  modelsVW.classList.remove("none");
+  fuelContainer.classList.remove("none");
+  engineContainer.classList.remove("none");
+  ownersContainer.classList.remove("none");
+});
 // //vars
 // const containerModel = document.querySelector(".container_model");
 // const wrSecondForm = document.querySelector(".wrapper_secondForm");

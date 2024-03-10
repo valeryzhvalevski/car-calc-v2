@@ -4,9 +4,16 @@
   box-sizing: border-box;
 }
 
+html {
+  transition: 0.5s ease;
+}
+
 body {
   overflow: hidden;
   height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .active {
@@ -23,6 +30,11 @@ button {
 }
 button:hover img {
   scale: 1.1;
+  filter: brightness(1);
+}
+
+img {
+  filter: brightness(0.5);
 }
 
 video {
@@ -40,6 +52,7 @@ video {
   color: #fff;
   text-align: center;
   padding: 20px;
+  max-width: 922px;
 }
 
 form div {
@@ -50,7 +63,19 @@ form div {
 .brand button {
   width: 200px;
   height: 200px;
+  background-color: #818181;
+  transition: 0.5s ease;
+}
+.brand button:hover {
   background-color: #fff;
+}
+
+.active-btn-img {
+  background-color: #fff !important;
+}
+.active-btn-img img {
+  scale: 1.1;
+  filter: brightness(1);
 }
 
 .brand button img {
@@ -63,26 +88,13 @@ form div {
 }
 
 .model-car {
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 170px;
 }
 
 .model-car img {
   width: 100%;
   transition: 0.5s ease;
-}
-
-form {
-  min-height: 600px;
-  width: 77%;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid;
-  padding: 20px;
-}
-form div {
-  border-bottom: 4px solid;
-  padding: 20px;
 }
 
 .container_model,

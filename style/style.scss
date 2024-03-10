@@ -14,22 +14,18 @@ body {
   justify-content: center;
 }
 #firstButton {
+  border: 1px solid #ffffff4f;
+  outline: none;
   padding: 12px;
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  background-image: linear-gradient(
-    to right,
-    #003cc5 0%,
-    #0b63f6 51%,
-    #003cc5 100%
-  );
+  color: #ffffffba;
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 5px;
+  background-color: #00000047;
   &:hover {
-    background-position: right center;
-  }
+    background-color: rgb(0 0 0 / 41%);  }
 }
 .notation {
   position: absolute;

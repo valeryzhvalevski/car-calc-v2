@@ -17,17 +17,19 @@ body {
 }
 
 #firstButton {
+  border: 1px solid rgba(255, 255, 255, 0.3098039216);
+  outline: none;
   padding: 12px;
   text-align: center;
   transition: 0.5s;
   background-size: 200% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  background-image: linear-gradient(to right, #003cc5 0%, #0b63f6 51%, #003cc5 100%);
+  color: rgba(255, 255, 255, 0.7294117647);
+  /* box-shadow: 0 0 20px #eee; */
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.2784313725);
 }
 #firstButton:hover {
-  background-position: right center;
+  background-color: rgba(0, 0, 0, 0.41);
 }
 
 .notation {

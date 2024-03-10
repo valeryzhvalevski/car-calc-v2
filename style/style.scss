@@ -13,8 +13,32 @@ body {
   align-items: center;
   justify-content: center;
 }
+#firstButton {
+  padding: 12px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  background-image: linear-gradient(
+    to right,
+    #003cc5 0%,
+    #0b63f6 51%,
+    #003cc5 100%
+  );
+  &:hover {
+    background-position: right center;
+  }
+}
+.notation {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  color:#ffffffd6;
+}
 .active {
-  background-color: lightblue;
+  opacity: 1 !important;
 }
 .none {
   display: none !important;
@@ -79,28 +103,147 @@ form div {
 .model-car {
   width: 220px;
   height: 170px;
+  position: relative;
+  height: 131px;
   &:hover {
     span {
-      display: block;
       position: relative;
+      bottom: 38px;
+      color: #ffffffad;
+      background-color: #00000073;
+      display: block;
+      font-size: 1.5rem;
+      z-index: 3;
     }
   }
 }
 .model-car img {
+  height: 131px;
   width: 100%;
   transition: 0.5s ease;
 }
 
-.model-car span {
-  z-index: 3;
-  display: none;
-}
-
 .model-car-active {
+  img {
+    scale: 1.1;
+    filter: brightness(1);
+  }
   span {
-    display: block;
+    position: relative;
+    bottom: 38px;
+    color: #ffffffad;
+    background-color: #00000073;
+    display: block !important;
+    font-size: 1.5rem;
+    z-index: 3;
   }
 }
+.fuel,
+.engine,
+.owners {
+  height: 60px;
+}
+.fuel,
+.owners {
+  button {
+    width: 34%;
+    opacity: 0.7;
+    font-size: 1.5rem;
+  }
+}
+.engine {
+  padding-top: 27px;
+  input[type="range"] {
+    height: 13px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #353535;
+    background: #f66d52;
+    border-radius: 3px;
+    border: 0px solid #f3c846;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    box-shadow: 0px 0px 6px #353535;
+    border: 1px solid #93685d;
+    height: 61px;
+    width: 35px;
+    border-radius: 7px;
+    background: #ffffff;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -26px;
+  }
+  input[type="range"]:focus::-webkit-slider-runnable-track {
+    background: #f66d52;
+  }
+  input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 0px 0px 0px #353535;
+    background: #f66d52;
+    border-radius: 3px;
+    border: 0px solid #f3c846;
+  }
+  input[type="range"]::-moz-range-thumb {
+    box-shadow: 0px 0px 6px #353535;
+    border: 1px solid #93685d;
+    height: 61px;
+    width: 35px;
+    border-radius: 7px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]::-ms-track {
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background: #f66d52;
+    border: 0px solid #f3c846;
+    border-radius: 7px;
+    box-shadow: 0px 0px 0px #353535;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background: #f66d52;
+    border: 0px solid #f3c846;
+    border-radius: 7px;
+    box-shadow: 0px 0px 0px #353535;
+  }
+  input[type="range"]::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 0px 0px 6px #353535;
+    border: 1px solid #93685d;
+    height: 61px;
+    width: 35px;
+    border-radius: 7px;
+    background: #ffffff;
+    cursor: pointer;
+  }
+  input[type="range"]:focus::-ms-fill-lower {
+    background: #f66d52;
+  }
+  input[type="range"]:focus::-ms-fill-upper {
+    background: #f66d52;
+  }
+}
+
 //////
 // form {
 //   min-height: 600px;
@@ -114,10 +257,11 @@ form div {
 //     padding: 20px;
 //   }
 // }
-
-.container_model,
-.wrapper_secondForm,
-.container__count-user {
+.brand,
+// .model,
+.models-car,
+.fuel,
+.owners, .engine, .price, .result {
   animation: toDown 0.5s ease-in-out;
 }
 

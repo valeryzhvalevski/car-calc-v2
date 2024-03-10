@@ -10,8 +10,9 @@
 
 <body>
   <video src="./img/pexels_videos.mp4" autoplay loop muted id="background-video"></video>
+  <p class="notation">*для корректной работы приложения необходимо заполнить все поля</p>
   <div class="box">
-    <button id="firstButton">Узнать стоимость авто</button>
+    <button id="firstButton"><h2>Узнать стоимость авто</h2></button>
     <form name="calc">
       <div class="brand">
         <button class="brand__audi" style="padding: 10px;" id="audi-btn">
@@ -35,22 +36,22 @@
           <button class="model__q7 model-car"><img src="https://avcdn.av.by/cargeneration/0000/7445/1007.jpg" alt="q7"><span>Q7</span></button>
         </div>
         <div class="model__skoda models-car">
-          <button class="model__kodiaq model-car"><img src="https://avcdn.av.by/cargeneration/0001/2220/3429.jpg" alt="kodiaq"></button>
-          <button class="model__fabia model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1514.jpeg" alt="fabia"></button>
-          <button class="model__rapid model-car"><img src="https://avcdn.av.by/cargeneration/0000/1321/5946.jpeg" alt="rapid"></button>
-          <button class="model__octavia model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1528.jpeg" alt="octavia"></button>
+          <button class="model__kodiaq model-car"><img src="https://avcdn.av.by/cargeneration/0001/2220/3429.jpg" alt="kodiaq"><span>Kodiaq</span></button>
+          <button class="model__fabia model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1514.jpeg" alt="fabia"><span>Fabia</span></button>
+          <button class="model__rapid model-car"><img src="https://avcdn.av.by/cargeneration/0000/1321/5946.jpeg" alt="rapid"><span>Rapid</span></button>
+          <button class="model__octavia model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1528.jpeg" alt="octavia"><span>Octavia</span></button>
         </div>
         <div class="model__volvo models-car">
-          <button class="model__s80 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2115.jpeg" alt="s80"></button>
-          <button class="model__s40 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2107.jpeg" alt="s40"></button>
-          <button class="model__xc60 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2146.jpeg" alt="xc60"></button>
-          <button class="model__v60 model-car"><img src="https://avcdn.av.by/cargeneration/0000/5072/4816.jpeg" alt="v60"></button>
+          <button class="model__s80 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2115.jpeg" alt="s80"><span>S80</span></button>
+          <button class="model__s40 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2107.jpeg" alt="s40"><span>S40</span></button>
+          <button class="model__xc60 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2146.jpeg" alt="xc60"><span>XC60</span></button>
+          <button class="model__v60 model-car"><img src="https://avcdn.av.by/cargeneration/0000/5072/4816.jpeg" alt="v60"><span>V60</span></button>
         </div>
         <div class="model__vw models-car">
-          <button class="model__golf model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2043.jpeg" alt="golf"></button>
-          <button class="model__passat model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2064.jpeg" alt="passat"></button>
-          <button class="model__a8 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1994.jpeg" alt="touareg"></button>
-          <button class="model__q7 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1967.jpeg" alt="phaeton"></button>
+          <button class="model__golf model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2043.jpeg" alt="golf"><span>Golf</span></button>
+          <button class="model__passat model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2064.jpeg" alt="passat"><span>Passat</span></button>
+          <button class="model__a8 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1994.jpeg" alt="touareg"><span>Touareg</span></button>
+          <button class="model__q7 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1967.jpeg" alt="phaeton"><span>Phaeton</span></button>
         </div>
 
       </div>
@@ -59,14 +60,14 @@
         <button value="Petrol">Petrol</button>
         <button value="Gas">Gas</button>
       </div>
-      <div class="engine">
-        <input type="range" min="1.1" max="3.5" step="0.1" value="1.9">
-        <span></span>
-      </div>
       <div class="owners">
         <button value="New">New Car</button>
         <button value="">1-2 Owners</button>
         <button value="">3+ Owners</button>
+      </div>
+      <div class="engine">
+        <input type="range" min="1.1" max="3.5" step="0.1" value="1.9">
+        <span></span>
       </div>
       <button id="price">Узнать цену</button>
       <div class="result"></div>

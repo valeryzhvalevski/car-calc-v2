@@ -123,9 +123,9 @@ vwBTN.addEventListener("click", () => {
 modelButtons.forEach(button => {
   button.addEventListener("click", function() {
     // Remove "active" class from all buttons first
-    modelButtons.forEach(btn => btn.classList.remove("active-btn-img"));
+    modelButtons.forEach(btn => btn.classList.remove("model-car-active"));
     // Add "active" class to the clicked button
-    this.classList.add("active-btn-img");
+    this.classList.add("model-car-active");
   });
 });
 // //vars

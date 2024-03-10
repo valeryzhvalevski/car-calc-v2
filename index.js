@@ -17,6 +17,7 @@ const fuelContainer = document.querySelector(".fuel");
 const engineContainer = document.querySelector(".engine");
 const ownersContainer = document.querySelector(".owners");
 const priceBTN = document.getElementById('price');
+const modelButtons = document.querySelectorAll(".models-car button");
 
 video.playbackRate = 0.8;
 
@@ -80,8 +81,6 @@ skodaBTN.addEventListener("click", () => {
   volvoBTN.classList.remove('active-btn-img');
   vwBTN.classList.remove('active-btn-img');
 
-
-
   modelsAudi.classList.add("none");
   modelsVW.classList.add("none");
   modelsVolvo.classList.add("none");
@@ -96,7 +95,6 @@ volvoBTN.addEventListener("click", () => {
   skodaBTN.classList.remove('active-btn-img');
   audiBTN.classList.remove('active-btn-img');
   vwBTN.classList.remove('active-btn-img');
-
 
   modelsAudi.classList.add("none");
   modelsSkoda.classList.add("none");
@@ -113,7 +111,6 @@ vwBTN.addEventListener("click", () => {
   audiBTN.classList.remove('active-btn-img');
   volvoBTN.classList.remove('active-btn-img');
 
-
   modelsAudi.classList.add("none");
   modelsSkoda.classList.add("none");
   modelsVolvo.classList.add("none");
@@ -121,6 +118,15 @@ vwBTN.addEventListener("click", () => {
   fuelContainer.classList.remove("none");
   engineContainer.classList.remove("none");
   ownersContainer.classList.remove("none");
+});
+
+modelButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    // Remove "active" class from all buttons first
+    modelButtons.forEach(btn => btn.classList.remove("active-btn-img"));
+    // Add "active" class to the clicked button
+    this.classList.add("active-btn-img");
+  });
 });
 // //vars
 // const containerModel = document.querySelector(".container_model");

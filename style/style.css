@@ -91,10 +91,23 @@ form div {
   width: 220px;
   height: 170px;
 }
+.model-car:hover span {
+  display: block;
+  position: relative;
+}
 
 .model-car img {
   width: 100%;
   transition: 0.5s ease;
+}
+
+.model-car span {
+  z-index: 3;
+  display: none;
+}
+
+.model-car-active span {
+  display: block;
 }
 
 .container_model,

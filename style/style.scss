@@ -1,27 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow: hidden;
+  height: 100vh;
+}
+.active {
+  background-color: lightblue;
+}
 .none {
   display: none !important;
 }
-.container {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  form {
-    min-height: 600px;
-    width: 550px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid;
-    padding: 20px;
-    div {
-      border-bottom: 4px solid;
-      padding: 20px;
+button {
+  cursor: pointer;
+  overflow: hidden;
+  &:hover {
+     img{
+      scale: 1.1;
     }
   }
 }
-.container_model, .wrapper_secondForm, .container__count-user {
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  // width: 100%;
+  height: 100%;
+  transform: translate(-50%, -50%);
+  filter: brightness(0.5);
+}
+.box {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+form div {
+  display: flex;
+  justify-content: space-between;
+}
+.brand button {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+}
+.brand button img {
+  width: 100%;
+  transition: 0.5s ease;
+}
+.model {
+  display: flex;
+}
+.model-car {
+  width: 200px;
+  height: 200px;
+}
+.model-car img {
+  width: 100%;
+  transition: 0.5s ease;
+}
+
+//////
+form {
+  min-height: 600px;
+  width: 77%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid;
+  padding: 20px;
+  div {
+    border-bottom: 4px solid;
+    padding: 20px;
+  }
+}
+
+.container_model,
+.wrapper_secondForm,
+.container__count-user {
   animation: toDown 0.5s ease-in-out;
 }
 

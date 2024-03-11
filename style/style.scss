@@ -26,13 +26,14 @@ body {
   background-color: #00000047;
   font-size: 0.5rem;
   &:hover {
-    background-color: #ffffff6f;  }
+    background-color: #ffffff6f;
+  }
 }
 .notation {
   position: absolute;
   top: 5px;
   left: 5px;
-  color:#ffffffd6;
+  color: #ffffffd6;
   font-size: 0.7rem;
 }
 .active {
@@ -254,27 +255,25 @@ form div {
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0.7;  }
+    opacity: 0.7;
+  }
+}
+#price {
+  width: 33%;
+  margin-top: 30px;
+  height: 44px;
+  opacity: 0.7;
+  font-size: 1.5rem;
+  &:hover{
+    opacity: 1;
+  }
 }
 
-//////
-// form {
-//   min-height: 600px;
-//   width: 77%;
-//   display: flex;
-//   flex-direction: column;
-//   border: 1px solid;
-//   padding: 20px;
-//   div {
-//     border-bottom: 4px solid;
-//     padding: 20px;
-//   }
-// }
 .brand,
 // .model,
 .models-car,
 .fuel,
-.owners, .engine, .price, .result {
+.owners, .engine, #price, .result {
   animation: toDown 0.5s ease-in-out;
 }
 
@@ -289,12 +288,14 @@ form div {
   }
 }
 
-#firstButton {
+#firstButton, #price {
   animation: zoom 1s ease alternate infinite;
 }
 @keyframes zoom {
   0% {
-    transform: scale(1);  }
+    transform: scale(1);
+  }
   100% {
-    transform: scale(1.05);  }
+    transform: scale(1.05);
+  }
 }

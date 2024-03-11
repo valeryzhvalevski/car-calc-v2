@@ -20,11 +20,8 @@ const priceBTN = document.getElementById('price');
 const modelButtons = document.querySelectorAll(".models-car button");
 const engineRange = document.getElementById('engine-id');
 const rangeValue = document.getElementById('range-value');
- 
 const fuelButtons = document.querySelectorAll(".fuel button");
-
 const ownersButtons = document.querySelectorAll(".owners button");
-
 
 const objModel = {
   AUDI: [
@@ -70,7 +67,7 @@ firstButton.addEventListener("click", (event) => {
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
-    if (!button.closest('.fuel') && !button.closest('.owners')) {
+    if (!button.closest('.fuel') && !button.closest('.owners') && !priceBTN) {
       buttons.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
     }
@@ -164,6 +161,7 @@ modelButtons.forEach(button => {
   button.addEventListener("click", function() {
     modelButtons.forEach(btn => btn.classList.remove("model-car-active"));
     this.classList.add("model-car-active");
+    showCalculateButton();
   });
 });
 
@@ -171,6 +169,7 @@ fuelButtons.forEach(button => {
   button.addEventListener("click", function() {
     fuelButtons.forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
+    showCalculateButton();
   });
 });
 
@@ -178,10 +177,43 @@ ownersButtons.forEach(button => {
   button.addEventListener("click", function() {
     ownersButtons.forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
+    showCalculateButton();
   });
 });
 
+function showCalculateButton() {
+  let modelActive = false;
+  let fuelActive = false;
+  let ownersActive = false;
 
+  // Проверка наличия класса "model-car-active" у какой-либо из кнопок модели
+  modelButtons.forEach(button => {
+    if (button.classList.contains("model-car-active")) {
+      modelActive = true;
+    }
+  });
+
+  // Проверка наличия класса "active" у какой-либо из кнопок типа топлива
+  fuelButtons.forEach(button => {
+    if (button.classList.contains("active")) {
+      fuelActive = true;
+    }
+  });
+
+  // Проверка наличия класса "active" у какой-либо из кнопок количества владельцев
+  ownersButtons.forEach(button => {
+    if (button.classList.contains("active")) {
+      ownersActive = true;
+    }
+  });
+
+  // Если у всех трех групп кнопок есть активные кнопки, показываем кнопку "Рассчитать"
+  if (modelActive && fuelActive && ownersActive) {
+    priceBTN.classList.remove("none");
+  } else {
+    priceBTN.classList.add("none");
+  }
+}
 
 // //vars
 // const containerModel = document.querySelector(".container_model");

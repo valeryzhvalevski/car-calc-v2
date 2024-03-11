@@ -22,31 +22,31 @@ const engineRange = document.getElementById('engine-id');
 const rangeValue = document.getElementById('range-value');
 const fuelButtons = document.querySelectorAll(".fuel button");
 const ownersButtons = document.querySelectorAll(".owners button");
-
+let arrResult = [];
 const objModel = {
   AUDI: [
-    { title: "a4", price: 1500 },
-    { title: "a6", price: 10000 },
-    { title: "a8", price: 3400 },
-    { title: "q7", price: 3400 },
+    { title: "a4", price: 32000 },
+    { title: "a6", price: 38000 },
+    { title: "a8", price: 42000 },
+    { title: "q7", price: 53000 },
   ],
   SKODA: [
-    { title: "kodiaq", price: 2200 },
-    { title: "fabia", price: 4800 },
-    { title: "rapid", price: 4800 },
-    { title: "octavia", price: 4800 },
+    { title: "kodiaq", price: 42000 },
+    { title: "fabia", price: 30000 },
+    { title: "rapid", price: 33000 },
+    { title: "octavia", price: 27000 },
   ],
   VOLVO: [
-    { title: "s80", price: 6000 },
-    { title: "s40", price: 12000 },
-    { title: "xc60", price: 1500 },
-    { title: "v60", price: 4800 },
+    { title: "s80", price: 27000 },
+    { title: "s40", price: 25000 },
+    { title: "xc60", price: 32000 },
+    { title: "v60", price: 21000 },
   ],
   VW: [
-    { title: "golf", price: 6000 },
-    { title: "passat", price: 12000 },
-    { title: "touareg", price: 1500 },
-    { title: "phaeton", price: 4800 },
+    { title: "golf", price: 17000 },
+    { title: "passat", price: 22500 },
+    { title: "touareg", price: 31000 },
+    { title: "phaeton", price: 30000 },
   ],
 };
 
@@ -54,6 +54,7 @@ video.playbackRate = 0.8;
 
 engineRange.addEventListener('input', function() {
   rangeValue.textContent = engineRange.value;
+  // calculatePrice();
 });
 
 form.classList.add("none");
@@ -162,6 +163,7 @@ modelButtons.forEach(button => {
     modelButtons.forEach(btn => btn.classList.remove("model-car-active"));
     this.classList.add("model-car-active");
     showCalculateButton();
+    // calculatePrice();
   });
 });
 
@@ -170,6 +172,7 @@ fuelButtons.forEach(button => {
     fuelButtons.forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
     showCalculateButton();
+    // calculatePrice();
   });
 });
 
@@ -178,6 +181,7 @@ ownersButtons.forEach(button => {
     ownersButtons.forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
     showCalculateButton();
+    // calculatePrice();
   });
 });
 
@@ -186,28 +190,24 @@ function showCalculateButton() {
   let fuelActive = false;
   let ownersActive = false;
 
-  // Проверка наличия класса "model-car-active" у какой-либо из кнопок модели
   modelButtons.forEach(button => {
     if (button.classList.contains("model-car-active")) {
       modelActive = true;
     }
   });
 
-  // Проверка наличия класса "active" у какой-либо из кнопок типа топлива
   fuelButtons.forEach(button => {
     if (button.classList.contains("active")) {
       fuelActive = true;
     }
   });
 
-  // Проверка наличия класса "active" у какой-либо из кнопок количества владельцев
   ownersButtons.forEach(button => {
     if (button.classList.contains("active")) {
       ownersActive = true;
     }
   });
 
-  // Если у всех трех групп кнопок есть активные кнопки, показываем кнопку "Рассчитать"
   if (modelActive && fuelActive && ownersActive) {
     priceBTN.classList.remove("none");
   } else {
@@ -215,118 +215,71 @@ function showCalculateButton() {
   }
 }
 
-// //vars
-// const containerModel = document.querySelector(".container_model");
-// const wrSecondForm = document.querySelector(".wrapper_secondForm");
-// const containerCountUser = document.querySelector(".container__count-user");
-// const used = document.querySelector("#used");
-// const newStatus = document.querySelector("#new");
-// const resultSumm = document.querySelector(".result");
-// const form = document.forms.calc;
-// let arrResult = [];
-// const markAuto = form.elements.markaAuto;
-// const modelAuto = form.elements.modelAuto;
-// const btnSubmit = form.elements.btnSend;
-// const enigne = form.elements.enigne;
-// const statusRadio = form.elements.status;
-// const countUser = form.elements.count;
-// const fuelArr = form.elements.fuel;
 
-// //listener
-// markAuto.addEventListener("change", getValueMarka);
-// modelAuto.addEventListener("change", getValueModel);
-// form.addEventListener("submit", getResult);
-// used.addEventListener("change", renderCountUsedAdd);
-// newStatus.addEventListener("change", renderCountUsedRemove);
 
-// ///function
+// const skodaFabiaPrice = objModel.SKODA.find(model => model.title === "fabia").price;
+// console.log(skodaFabiaPrice); 
 
-// ///global
-// function getValueMarka(event) {
-//   //валидация
-//   if (event.target.value === "") {
-//     containerModel.classList.add("none");
-//   }
-//   containerModel.classList.remove("none");
-//   renderSelectModel(objModel[event.target.value]);
-//   switch (event.target.value) {
-//     case "BMW":
-//       arrResult[0] = 50000;
-//       break;
-//     case "AUDI":
-//       arrResult[0] = 45000;
-//       break;
-//     case "CITROEN":
-//       arrResult[0] = 20000;
-//       break;
-//     case "SKODA":
-//       arrResult[0] = 30000;
-//       break;
-//     default:
-//       arrResult = [];
-//   }
-// }
-
-// function renderSelectModel(arr) {
-//   modelAuto.innerHTML = "";
-//   const optHidden = document.createElement("option");
-//   optHidden.textContent = "выберите модель";
-//   optHidden.value = "";
-//   optHidden.hidden = true;
-//   modelAuto.appendChild(optHidden);
-//   wrSecondForm.classList.add("none");
-//   arr.forEach((item) => {
-//     const opt = document.createElement("option");
-//     opt.textContent = item.title;
-//     opt.value = item.price;
-//     modelAuto.appendChild(opt);
+// modelButtons.forEach(button => {
+//   button.addEventListener("click", function() {
+//     const selectedBrand = this.parentNode.classList[0].split("__")[1].toUpperCase();
+//     const selectedModel = this.classList[0].split("__")[1];
+//     const selectedModelPrice = objModel[selectedBrand].find(model => model.title === selectedModel).price;
+//     console.log(`1: ${selectedModelPrice}`);
 //   });
-// }
+// });
 
-// function getValueModel(event) {
-//   if (arrResult.length === 0) return;
-//   arrResult[1] = +event.target.value;
-//   wrSecondForm.classList.remove("none");
-// }
+let selectedBrand = ""; // Марка автомобиля
+let selectedModel = ""; // Модель автомобиля
+let selectedModelPrice = 0; // Цена выбранной модели
+let selectedFuel = 0; // Тип топлива
+let selectedOwners = 0; // Количество владельцев
+let engineCapacity = 0; // Ёмкость двигателя
 
-// function getResult(event) {
-//   event.preventDefault();
-//   const fuelPrice = getValueRadio(fuelArr);
-//   const enignePrice = +enigne.value * 500;
-//   const priceStatus = getValueRadio(statusRadio);
-//   let usedPrice = 0;
-//   if (!containerCountUser.classList.contains("none")) {
-//     usedPrice = getValueRadio(countUser);
-//   }
-//   const result =
-//     +fuelPrice +
-//     +enignePrice +
-//     +priceStatus +
-//     +usedPrice +
-//     arrResult[0] +
-//     arrResult[1];
-//   resultSumm.textContent = `${result}$`;
-// }
+priceBTN.addEventListener('click', calculateTotalPrice); // Удалите круглые скобки ()
 
-// function renderCountUsedAdd(event) {
-//   if (event.target.checked) {
-//     containerCountUser.classList.remove("none");
-//   }
-// }
-// function renderCountUsedRemove(event) {
-//   if (event.target.checked) {
-//     containerCountUser.classList.add("none");
-//   }
-// }
+modelButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    selectedBrand = this.parentNode.classList[0].split("__")[1].toUpperCase();
+    selectedModel = this.classList[0].split("__")[1];
+    selectedModelPrice = objModel[selectedBrand].find(model => model.title === selectedModel).price;
+    console.log(`1: ${selectedModelPrice}`);
+  });
+});
 
-// ///templates
-// function getValueRadio(arrRadio) {
-//   const originalArrRadio = [...arrRadio];
-//   let price;
-//   originalArrRadio.forEach((item) => {
-//     if (item.checked) {
-//       price = item.value;
-//     }
-//   });
-//   return price;
-// }
+fuelButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    selectedFuel = parseFloat(this.value);
+    console.log(`2: ${selectedFuel}`);
+  });
+});
+
+ownersButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    selectedOwners = parseFloat(this.value);
+    console.log(`3: ${selectedOwners}`);
+  });
+});
+
+engineRange.addEventListener('input', function() {
+  engineCapacity = parseFloat(this.value);
+  console.log(`4: ${engineCapacity}`);
+});
+
+function calculateTotalPrice() {
+  // Проверяем, все ли параметры были выбраны и не равны null или undefined
+  if (selectedBrand && selectedModel && selectedModelPrice && selectedFuel && selectedOwners && engineCapacity) {
+    // Преобразуем строковые значения в числа
+    const fuelPrice = parseFloat(selectedFuel);
+    const ownersPrice = parseFloat(selectedOwners);
+    
+    // Вычисляем общую стоимость
+    const totalPrice = selectedModelPrice + fuelPrice + ownersPrice + engineCapacity;
+    console.log(totalPrice);
+    // Выводим результат на кнопку "Рассчитать"
+    priceBTN.textContent = `Estimated Price: $${totalPrice.toFixed(2)}`;
+  } else {
+    // Если не все параметры выбраны, выводим сообщение об ошибке
+    priceBTN.textContent = "Please select all options";
+  }
+}

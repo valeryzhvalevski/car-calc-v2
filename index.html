@@ -10,19 +10,20 @@
 
 <body>
   <video src="./img/pexels_videos.mp4" autoplay loop muted id="background-video"></video>
-  <p class="notation">*для корректной работы приложения необходимо заполнить все поля</p>
+  <p class="notation">*for the application to work correctly, you must fill in all fields</p>
   <div class="box">
-    <button id="firstButton"><h2>Узнать стоимость авто</h2></button>
+    <button id="firstButton"><h2>
+      Find out the cost of a car</h2></button>
     <form name="calc">
       <div class="brand">
-        <button class="brand__audi" style="padding: 10px;" id="audi-btn">
+        <button class="brand__audi" style="padding: 10px;" id="audi-btn" value="AUDI">
           <img src="./img/audi-logo.jpeg" alt="audi">
         </button>
         <button class="brand__skoda" id="skoda-btn"><img src="./img/skoda-logo.jpeg" alt="skoda">
         </button>
         <button class="brand__volvo" id="volvo-btn"><img src="./img/volvo-logo.png" alt="volvo">
         </button>
-        <button class="brand__geely" id="geely" style="position: relative; z-index: 3;">
+        <button class="brand__geely" id="geely" style="position: relative; z-index: 7;">
           <img src="./img/geely-logo.jpeg" alt="geely" >
         </button>
         <button class="brand__vw" id="vw-btn"><img src="./img/vw-logo.jpeg" alt="vw">
@@ -50,8 +51,8 @@
         <div class="model__vw models-car">
           <button class="model__golf model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2043.jpeg" alt="golf"><span>Golf</span></button>
           <button class="model__passat model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/2064.jpeg" alt="passat"><span>Passat</span></button>
-          <button class="model__a8 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1994.jpeg" alt="touareg"><span>Touareg</span></button>
-          <button class="model__q7 model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1967.jpeg" alt="phaeton"><span>Phaeton</span></button>
+          <button class="model__touareg model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1994.jpeg" alt="touareg"><span>Touareg</span></button>
+          <button class="model__phaeton model-car"><img src="https://avcdn.av.by/cargeneration/0000/0025/1967.jpeg" alt="phaeton"><span>Phaeton</span></button>
         </div>
 
       </div>
@@ -66,7 +67,8 @@
         <button value="">3+ Owners</button>
       </div>
       <div class="engine">
-        <input type="range" min="1.1" max="3.5" step="0.1" value="1.9">
+        <label for="engine-id">Engine Capacity</label>
+        <input type="range" min="1.1" max="3.5" step="0.1" value="1.9" id="engine-id" >
         <span></span>
       </div>
       <button id="price">Узнать цену</button>

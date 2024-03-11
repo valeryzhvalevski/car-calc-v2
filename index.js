@@ -18,6 +18,32 @@ const engineContainer = document.querySelector(".engine");
 const ownersContainer = document.querySelector(".owners");
 const priceBTN = document.getElementById('price');
 const modelButtons = document.querySelectorAll(".models-car button");
+const objModel = {
+  AUDI: [
+    { title: "a4", price: 1500 },
+    { title: "a6", price: 10000 },
+    { title: "a8", price: 3400 },
+    { title: "q7", price: 3400 },
+  ],
+  SKODA: [
+    { title: "kodiaq", price: 2200 },
+    { title: "fabia", price: 4800 },
+    { title: "rapid", price: 4800 },
+    { title: "octavia", price: 4800 },
+  ],
+  VOLVO: [
+    { title: "s80", price: 6000 },
+    { title: "s40", price: 12000 },
+    { title: "xc60", price: 1500 },
+    { title: "v60", price: 4800 },
+  ],
+  VW: [
+    { title: "golf", price: 6000 },
+    { title: "passat", price: 12000 },
+    { title: "touareg", price: 1500 },
+    { title: "phaeton", price: 4800 },
+  ],
+};
 
 video.playbackRate = 0.8;
 
@@ -122,12 +148,12 @@ vwBTN.addEventListener("click", () => {
 
 modelButtons.forEach(button => {
   button.addEventListener("click", function() {
-    // Remove "active" class from all buttons first
     modelButtons.forEach(btn => btn.classList.remove("model-car-active"));
-    // Add "active" class to the clicked button
     this.classList.add("model-car-active");
   });
 });
+
+
 // //vars
 // const containerModel = document.querySelector(".container_model");
 // const wrSecondForm = document.querySelector(".wrapper_secondForm");
@@ -137,30 +163,6 @@ modelButtons.forEach(button => {
 // const resultSumm = document.querySelector(".result");
 // const form = document.forms.calc;
 // let arrResult = [];
-// const objModel = {
-//   BMW: {
-//     image: "/img/audi-logo.jpeg",
-//     models: [
-//       { title: "x3", price: 2000, image: "path/to/bmw_x3_image.jpg" },
-//       { title: "525", price: 2500, image: "path/to/bmw_525_image.jpg" },
-//       { title: "i1", price: 2200, image: "path/to/bmw_i1_image.jpg" },
-//     ]
-//   },  AUDI: [
-//     { title: "a4b6", price: 1500 },
-//     { title: "a8qutrro", price: 10000 },
-//     { title: "a3", price: 3400 },
-//   ],
-//   CITROEN: [
-//     { title: "c5", price: 2200 },
-//     { title: "c4", price: 4800 },
-//     { title: "c3", price: 4800 },
-//   ],
-//   SKODA: [
-//     { title: "octavia", price: 6000 },
-//     { title: "rapid", price: 12000 },
-//     { title: "fabia", price: 1500 },
-//   ],
-// };
 // const markAuto = form.elements.markaAuto;
 // const modelAuto = form.elements.modelAuto;
 // const btnSubmit = form.elements.btnSend;

@@ -24,14 +24,16 @@ body {
   /* box-shadow: 0 0 20px #eee; */
   border-radius: 5px;
   background-color: #00000047;
+  font-size: 0.5rem;
   &:hover {
-    background-color: rgb(0 0 0 / 41%);  }
+    background-color: #ffffff6f;  }
 }
 .notation {
   position: absolute;
   top: 5px;
   left: 5px;
   color:#ffffffd6;
+  font-size: 0.7rem;
 }
 .active {
   opacity: 1 !important;
@@ -154,9 +156,11 @@ form div {
     -webkit-appearance: none;
     margin: 10px 0;
     width: 100%;
+    opacity: 0.88;
+    transition: opacity 0.3s ease;
   }
-  input[type="range"]:focus {
-    outline: none;
+  input[type="range"]:active {
+    opacity: 1;
   }
   input[type="range"]::-webkit-slider-runnable-track {
     width: 100%;
@@ -239,6 +243,12 @@ form div {
     background: #f66d52;
   }
 }
+.engine {
+  label {
+    font-size: 1rem;
+    opacity: 0.77;
+  }
+}
 
 //////
 // form {
@@ -270,4 +280,14 @@ form div {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+#firstButton {
+  animation: zoom 1s ease alternate infinite;
+}
+@keyframes zoom {
+  0% {
+    transform: scale(1);  }
+  100% {
+    transform: scale(1.05);  }
 }

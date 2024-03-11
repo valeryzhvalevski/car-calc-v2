@@ -18,6 +18,9 @@ const engineContainer = document.querySelector(".engine");
 const ownersContainer = document.querySelector(".owners");
 const priceBTN = document.getElementById('price');
 const modelButtons = document.querySelectorAll(".models-car button");
+const engineRange = document.getElementById('engine-id');
+const rangeValue = document.getElementById('range-value');
+
 const objModel = {
   AUDI: [
     { title: "a4", price: 1500 },
@@ -46,6 +49,10 @@ const objModel = {
 };
 
 video.playbackRate = 0.8;
+
+engineRange.addEventListener('input', function() {
+  rangeValue.textContent = engineRange.value;
+});
 
 form.classList.add("none");
 

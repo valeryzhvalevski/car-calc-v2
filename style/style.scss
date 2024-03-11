@@ -157,6 +157,7 @@ form div {
     margin: 10px 0;
     width: 100%;
     opacity: 0.88;
+    border-radius: 5px;
     transition: opacity 0.3s ease;
   }
   input[type="range"]:active {
@@ -248,6 +249,12 @@ form div {
     font-size: 1rem;
     opacity: 0.77;
   }
+  .for-range {
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;  }
 }
 
 //////

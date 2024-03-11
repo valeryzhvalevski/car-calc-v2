@@ -20,6 +20,11 @@ const priceBTN = document.getElementById('price');
 const modelButtons = document.querySelectorAll(".models-car button");
 const engineRange = document.getElementById('engine-id');
 const rangeValue = document.getElementById('range-value');
+ 
+const fuelButtons = document.querySelectorAll(".fuel button");
+
+const ownersButtons = document.querySelectorAll(".owners button");
+
 
 const objModel = {
   AUDI: [
@@ -65,8 +70,10 @@ firstButton.addEventListener("click", (event) => {
 buttons.forEach((button) => {
   button.addEventListener("click", (event) => {
     event.preventDefault();
-    buttons.forEach((btn) => btn.classList.remove("active"));
-    button.classList.add("active");
+    if (!button.closest('.fuel') && !button.closest('.owners')) {
+      buttons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+    }
   });
 });
 
@@ -159,6 +166,21 @@ modelButtons.forEach(button => {
     this.classList.add("model-car-active");
   });
 });
+
+fuelButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    fuelButtons.forEach(btn => btn.classList.remove("active"));
+    this.classList.add("active");
+  });
+});
+
+ownersButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    ownersButtons.forEach(btn => btn.classList.remove("active"));
+    this.classList.add("active");
+  });
+});
+
 
 
 // //vars

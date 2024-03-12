@@ -22,6 +22,8 @@ const engineRange = document.getElementById('engine-id');
 const rangeValue = document.getElementById('range-value');
 const fuelButtons = document.querySelectorAll(".fuel button");
 const ownersButtons = document.querySelectorAll(".owners button");
+const result = document.querySelector(".result");
+
 let arrResult = [];
 const objModel = {
   AUDI: [
@@ -54,7 +56,7 @@ video.playbackRate = 0.8;
 
 engineRange.addEventListener('input', function() {
   rangeValue.textContent = engineRange.value;
-  // calculatePrice();
+  calculatePrice();
 });
 
 form.classList.add("none");
@@ -97,6 +99,7 @@ fuelContainer.classList.add("none");
 engineContainer.classList.add("none");
 ownersContainer.classList.add("none");
 priceBTN.classList.add("none");
+result.classList.add("none");
 
 audiBTN.addEventListener("click", () => {
   audiBTN.classList.add('active-btn-img');
@@ -163,7 +166,7 @@ modelButtons.forEach(button => {
     modelButtons.forEach(btn => btn.classList.remove("model-car-active"));
     this.classList.add("model-car-active");
     showCalculateButton();
-    // calculatePrice();
+    calculatePrice();
   });
 });
 
@@ -172,7 +175,7 @@ fuelButtons.forEach(button => {
     fuelButtons.forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
     showCalculateButton();
-    // calculatePrice();
+    calculatePrice();
   });
 });
 
@@ -181,7 +184,7 @@ ownersButtons.forEach(button => {
     ownersButtons.forEach(btn => btn.classList.remove("active"));
     this.classList.add("active");
     showCalculateButton();
-    // calculatePrice();
+    calculatePrice();
   });
 });
 
@@ -189,6 +192,7 @@ function showCalculateButton() {
   let modelActive = false;
   let fuelActive = false;
   let ownersActive = false;
+  // let engineActive = parseFloat(engineCapacity) !== 0;
 
   modelButtons.forEach(button => {
     if (button.classList.contains("model-car-active")) {
@@ -215,71 +219,46 @@ function showCalculateButton() {
   }
 }
 
+var selectedBrand = ""; 
+var selectedModel = ""; 
+var selectedModelPrice = 0; 
+var selectedFuel = 0; 
+var selectedOwners = 0; 
+var engineCapacity = 0; 
 
+priceBTN.addEventListener('click', calculateTotalPrice); 
+priceBTN.addEventListener('click', function() {
+  result.classList.remove('none');
+}); 
 
-// const skodaFabiaPrice = objModel.SKODA.find(model => model.title === "fabia").price;
-// console.log(skodaFabiaPrice); 
-
-// modelButtons.forEach(button => {
-//   button.addEventListener("click", function() {
-//     const selectedBrand = this.parentNode.classList[0].split("__")[1].toUpperCase();
-//     const selectedModel = this.classList[0].split("__")[1];
-//     const selectedModelPrice = objModel[selectedBrand].find(model => model.title === selectedModel).price;
-//     console.log(`1: ${selectedModelPrice}`);
-//   });
-// });
-
-let selectedBrand = ""; // Марка автомобиля
-let selectedModel = ""; // Модель автомобиля
-let selectedModelPrice = 0; // Цена выбранной модели
-let selectedFuel = 0; // Тип топлива
-let selectedOwners = 0; // Количество владельцев
-let engineCapacity = 0; // Ёмкость двигателя
-
-priceBTN.addEventListener('click', calculateTotalPrice); // Удалите круглые скобки ()
 
 modelButtons.forEach(button => {
   button.addEventListener("click", function() {
     selectedBrand = this.parentNode.classList[0].split("__")[1].toUpperCase();
     selectedModel = this.classList[0].split("__")[1];
     selectedModelPrice = objModel[selectedBrand].find(model => model.title === selectedModel).price;
-    console.log(`1: ${selectedModelPrice}`);
-  });
+    });
 });
 
 fuelButtons.forEach(button => {
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     selectedFuel = parseFloat(this.value);
-    console.log(`2: ${selectedFuel}`);
   });
 });
 
 ownersButtons.forEach(button => {
-  button.addEventListener("click", function() {
+  button.addEventListener("click", function () {
     selectedOwners = parseFloat(this.value);
-    console.log(`3: ${selectedOwners}`);
   });
 });
-
 engineRange.addEventListener('input', function() {
   engineCapacity = parseFloat(this.value);
-  console.log(`4: ${engineCapacity}`);
+  console.log(engineCapacity)
 });
 
 function calculateTotalPrice() {
-  // Проверяем, все ли параметры были выбраны и не равны null или undefined
-  if (selectedBrand && selectedModel && selectedModelPrice && selectedFuel && selectedOwners && engineCapacity) {
-    // Преобразуем строковые значения в числа
-    const fuelPrice = parseFloat(selectedFuel);
-    const ownersPrice = parseFloat(selectedOwners);
-    
-    // Вычисляем общую стоимость
-    const totalPrice = selectedModelPrice + fuelPrice + ownersPrice + engineCapacity;
-    console.log(totalPrice);
-    // Выводим результат на кнопку "Рассчитать"
-    priceBTN.textContent = `Estimated Price: $${totalPrice.toFixed(2)}`;
-  } else {
-    // Если не все параметры выбраны, выводим сообщение об ошибке
-    priceBTN.textContent = "Please select all options";
-  }
+  const resPrice = (selectedModelPrice + selectedFuel + selectedOwners) * engineCapacity;
+  const formattedPrice = resPrice.toLocaleString('en-US');
+  result.innerHTML = (`${formattedPrice}$`);
 }
+

@@ -62,18 +62,21 @@
         <button value="4000">Gas</button>
       </div>
       <div class="owners">
-        <button value="0">New Car</button>
+        <button value="1">New Car</button>
         <button value="-6000">1-2 Owners</button>
         <button value="-13000">3+ Owners</button>
       </div>
       <div class="engine">
         <label for="engine-id">Engine Capacity</label>
-        <input type="range" min="1.1" max="3.5" step="0.1" value="1.9" id="engine-id" >
+        <input type="range" min="1.1" max="3.5" step="0.1" value="" id="engine-id" >
         <span class="for-range" id="range-value">1.9</span>
       </div>
     </form>
-    <button id="price">Сalculate</button>
-    <div class="result"></div>
+    <div class="price-and-res">
+      <button id="price">Сalculate</button>
+      <div class="result"></div>
+  
+    </div>
 
   </div>
   <script src="./index.js"></script>
